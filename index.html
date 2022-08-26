@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-licita</title>
+    <!-- MATERIAL CDN-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body onload="Oportunidades()">
+    <div class="container">
+      <!----------- INÍCIO BARRA LATERAL ------------>
+      <aside>
+        <div class="logo">
+          <img src="./imagens/logo.jpg" />
+          <h2>E-<span class="danger">LICI</span>TA</h2>
+        </div>
+
+        <div class="sidebar">
+          <a href="#">
+            <span class="material-icons-sharp">dashboard</span>
+            <h3>Licitações</h3>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp">person_outline</span>
+            <h3>Clientes</h3>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp">receipt_long</span>
+            <h3>Oportunidades</h3>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp">insights</span>
+            <h3>Analíticos</h3>
+          </a>
+          <a href="#">
+            <span class="material-icons-sharp">mail_outline</span>
+            <h3>Mensagens</h3>
+          </a>
+
+          <a href="#">
+            <span class="material-icons-sharp">logout</span>
+            <h3>Sair</h3>
+          </a>
+        </div>
+      </aside>
+      <!----------- FIM DA BARRA LATERAL----------->
+      <main>
+        <h1>Painel de Oportunidades</h1>
+        <div class="oportunidades">
+          <table>
+            <thead>
+              <tr>
+                <th>Licitação</th>
+                <th>Status</th>
+                <th>Objeto</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!----------------------- PREENCHIMENTO DINÂMICO DA TABELA OPORTUNIDADES ------------------------->
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <!---------- FIM DA DIV MAIN ------------>
+      <!-- <div class="direita">
+        --<div class="muda-tema">
+          <span class="material-icons-sharp ativo">light_mode</span>
+          <span class="material-icons-sharp">dark_mode</span>
+        </div> 
+      </div>-->
+    </div>
+    <script src="index.js"></script>
+    <script src="API_webScraper.js"></script>
+  </body>
+</html>
