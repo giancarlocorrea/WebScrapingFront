@@ -1,23 +1,29 @@
 const url = "https://giancarlowebscraping.herokuapp.com";
 
 // Chamada da API para pegar todas as Oportunidades
-function Oportunidades() {
+function listaOportunidades() {
   axios
     .get(`${url}/Oportunidades`)
     .then((response) =>
       response.data.forEach((oportunidade) => {
         const tr = document.createElement("tr");
+
+        const botaoSalvar =
+          oportunidade.lida != "S"
+            ? `<td class="primary salvar" onclick="detalhesLinha(this)"><div class="botao botaoSalvar"> 
+            <a class="primary">Salvar</a></div></td>`
+            : "";
+
         const trConteudo = `
                       <td>${oportunidade.id}</td>
                       <td>${oportunidade.licitacao}</td>
+                      <td><div id="status" class=${
+                        oportunidade.lida === "S" ? "lida botao" : ""
+                      }>${oportunidade.lida === "S" ? "lida" : ""}</div></td>
                       <td>${oportunidade.status}</td>
                       <td>${oportunidade.objeto}</td>
-                      <td class="primary salvar" onclick="detalhesLinha(this)"><a class="primary">Salvar</a></td>
+                      ${botaoSalvar}      
               `;
-
-        if (oportunidade.lida === "S") {
-          tr.classList.add("lida");
-        }
 
         tr.innerHTML = trConteudo;
         document.querySelector("table tbody").appendChild(tr);
@@ -33,6 +39,8 @@ function Oportunidades() {
 function atualizaOportunidades(id) {
   axios
     .put(`${url}/atualizaOportunidades/${id}`)
-    .then((response) => console.log(response))
-    .catch((error) => console.log("Erro ao tentar atualizar a oportunidade"));
+    .then()
+    .catch((error) =>
+      console.log(`Erro ao tentar atualizar a oportunidade: ${error}`)
+    );
 }
