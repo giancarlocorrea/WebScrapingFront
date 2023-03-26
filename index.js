@@ -11,3 +11,11 @@ function detalhesLinha(link) {
 
   atualizaOportunidades(Number(linha.cells[0].innerText));
 }
+
+function Spinner(show) {
+  if (show) {
+    document.querySelector("#spinner").style.display = "hidden";
+  } else {
+    document.querySelector("#spinner").style.display = "none";
+  }
+}

@@ -1,10 +1,12 @@
-const url = "https://giancarlowebscraping.herokuapp.com";
+//const url = "https://giancarlowebscraping.herokuapp.com";
+const url = "http://localhost:3000";
 
 // Chamada da API para pegar todas as Oportunidades
 function listaOportunidades() {
   axios
     .get(`${url}/Oportunidades`)
-    .then((response) =>
+    .then((response) => {
+      Spinner(true);
       response.data.forEach((oportunidade) => {
         const tr = document.createElement("tr");
 
@@ -27,8 +29,9 @@ function listaOportunidades() {
 
         tr.innerHTML = trConteudo;
         document.querySelector("table tbody").appendChild(tr);
-      })
-    )
+      });
+      if (response) Spinner(false);
+    })
     .catch((error) =>
       console.log(
         `Não foi possível acessar os dados pela rota /Oportunidades\n${error}`
